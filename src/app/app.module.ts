@@ -9,6 +9,7 @@ import { MyApp } from './app.component';
 import { Year } from '../pipes/year';
 import { StartsModule } from '../components/starts/stars.module';
 import { HomePage } from '../pages/home/home';
+import { AuthHttp } from '../providers/auth-http'
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { HomePage } from '../pages/home/home';
   providers: [
     StatusBar,
     SplashScreen,
+    AuthHttp,
     {
       provide: ErrorHandler, useClass: IonicErrorHandler
     },

@@ -5,7 +5,8 @@ page-home {
 
   }
   section{
-    margin-top: 16px;
+    margin-top: 10px;
+    overflow: hidden;
   }
   section>ion-card ion-card-content>ion-card-title{
     overflow: hidden;
@@ -15,6 +16,12 @@ page-home {
   section>ion-card>img{
     width: 30%;
     float: right;
-    max-height: 166px;
   }
+  section>ion-card{
+    height: 166px;
+  }
+  ion-content.content{
+    background-color:rgba(0,0,0,0.12);
+  }
+
 }

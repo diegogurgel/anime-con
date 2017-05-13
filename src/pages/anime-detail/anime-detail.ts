@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
-import { AuthHttp } from '../../providers/auth-http';
+import { AnimeProvider } from '../../providers/anime-provider'
 
 /**
  * Generated class for the AnimeDetail page.
@@ -12,17 +12,18 @@ import { AuthHttp } from '../../providers/auth-http';
 @Component({
   selector: 'page-anime-detail',
   templateUrl: 'anime-detail.html',
-  providers:[AuthHttp],
+  providers:[AnimeProvider],
 })
 export class AnimeDetail {
   anime:any;
-  constructor(public navCtrl: NavController, public navParams: NavParams, public http: AuthHttp) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public animePvd: AnimeProvider) {
     let animeId = navParams.get('animeId');
     this.anime = {};
-    http.get(`https://anilist.co/api/anime/${animeId}`).then(data=>{
+    animePvd.get(animeId).then(data=>{
       this.anime = data;
       this.anime.genres = this.anime.genres.join(', ');
     });
+
   }
 
   ionViewDidLoad() {
