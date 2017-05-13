@@ -6,22 +6,27 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 
 import { MyApp } from './app.component';
+import { Year } from '../pipes/year';
+import { StartsModule } from '../components/starts/stars.module';
 import { HomePage } from '../pages/home/home';
+
 
 @NgModule({
   declarations: [
     MyApp,
-    HomePage
+    HomePage,
+    Year,
   ],
   imports: [
     BrowserModule,
     HttpModule,
+    StartsModule,
     IonicModule.forRoot(MyApp)
   ],
   bootstrap: [IonicApp],
   entryComponents: [
     MyApp,
-    HomePage
+    HomePage,
   ],
   providers: [
     StatusBar,

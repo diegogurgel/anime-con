@@ -9,11 +9,15 @@ import { AuthHttp } from '../../providers/auth-http'
   providers: [AuthHttp],
 })
 export class HomePage {
-
+  animes:any;
   constructor(public navCtrl: NavController, http:AuthHttp) {
-  	http.get('https://anilist.co/api/anime/search/Onegai').then(data=>{
-  		console.log(data);
+    this.animes = [];
+  	http.get('https://anilist.co/api/browse/anime').then(data=>{
+  	  this.animes = data;
   	});
+  }
+  openAnime(animeId){
+    this.navCtrl.push('AnimeDetail', {animeId:animeId});
   }
 
 }
